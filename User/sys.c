@@ -1,6 +1,6 @@
 /**
  * @file sys.c
- * @author fhc-crick (you@domain.com)
+ * @author fhc-crick (2745113217@qq.com)
  * @brief 定义一些系统函数
  * @version 0.1
  * @date 2025-04-17

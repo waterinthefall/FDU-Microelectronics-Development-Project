@@ -1,6 +1,6 @@
 /**
  * @file gpio.c
- * @author fhc-crick (you@domain.com)
+ * @author fhc-crick (2745113217@qq.com)
  * @brief 初始化各种GPIO
  * @version 0.1
  * @date 2025-04-17
