@@ -1,0 +1,14 @@
+CompileFlags:
+    Add:
+        - -IC:\Users\FHC_Crick\scoop\apps\gcc-arm-none-eabi\current\arm-none-eabi\include\newlib-nano
+        - -IC:\Users\FHC_Crick\scoop\apps\gcc\current\include
+        - -IC:\Users\FHC_Crick\scoop\apps\gcc-arm-none-eabi\current\arm-none-eabi\include\c++\14.2.1
+        - -IC:\Users\FHC_Crick\scoop\apps\gcc-arm-none-eabi\current\arm-none-eabi\include\c++\14.2.1\arm-none-eabi\thumb\v7-m\nofp
+        - -IC:\Users\FHC_Crick\scoop\apps\gcc-arm-none-eabi\current\arm-none-eabi\include\c++\14.2.1\backward
+        - -IC:\Users\FHC_Crick\scoop\apps\gcc-arm-none-eabi\current\lib\gcc\arm-none-eabi\14.2.1\include
+        - -IC:\Users\FHC_Crick\scoop\apps\gcc-arm-none-eabi\current\lib\gcc\arm-none-eabi\14.2.1\include-fixed
+        - -IC:\Users\FHC_Crick\scoop\apps\gcc-arm-none-eabi\current\arm-none-eabi\include
+        - -Ic:\Users\FHC_Crick\AppData\Local\Keil_v5\ARM\ARMCLANG/include
+        - -Ic:\Users\FHC_Crick\AppData\Local\Keil_v5\ARM\ARMCLANG/include/libcxx
+    CompilationDatabase: ./build/Debug
+    Compiler: c:\Users\FHC_Crick\AppData\Local\Keil_v5\ARM\ARMCLANG\bin\armclang.exe

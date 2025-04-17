@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<package schemaVersion="1.2" xs:noNamespaceSchemaLocation="PACK.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance">
+    <vendor>FMSH</vendor>
+    <name>FM33FK5XX_DFP</name>
+    <description>FMSH FM33FK5XX Series Device Family Pack</description>
+    <url>https://fmdevelopers.oss-cn-shanghai.aliyuncs.com/</url>
+    <releases>
+		<release date="2023-09-27" version="1.0.2">
+      		Modify SVD File for USB
+    	</release>
+		<release date="2023-09-19" version="1.0.1">
+      		Modify Dcore define
+    	</release>
+		<release date="2023-09-15" version="1.0.0">
+      		Release Initial version
+    	</release>
+		<release date="2023-04-07" version="0.0.1">
+      		Initial version 
+    	</release>
+    </releases>
+    <keywords>
+        <!--keywords for indexing -->
+        <keyword>Keil</keyword>
+        <keyword>FMSH</keyword>
+    </keywords>
+    <!-- devices section (mandatory for Device Family Packs) -->
+    <devices>
+        <family Dfamily="FM33FK5XX Series" Dvendor="FMSH:159">
+            <processor DcoreVersion="r0p0" Dfpu="SP_FPU" Dendian="Little-endian" Dmpu="NO_MPU" Dtz="NO_TZ" Dcore="Star-MC1" Ddsp="DSP" />
+             <!-- debug information -->
+            <debugconfig swj="1" default="swd" clock="5000000"/>           
+			<description>The FM33FK5XX device family contains an ARM China START-MC1 processor, running up to 80 MHz with a versatile set of on-chip peripherals.</description>
+            <subFamily DsubFamily="FM33FK5XX">
+                <processor Dclock="80000000" Dmpu="1"/>
+				<debug svd="SVD/FM33FK5XX.SVD"/>
+				<compile header="Device/Include/fm33fk5xx.h" define="FM33fk5xx"/>
+                <!-- FM33FK52X-->
+                <device Dname="FM33FK52X">
+                    <memory size="0x20000" default="1" startup="1" id="IROM1" start="0x00000000"/>
+                    <memory size="0x8000"  default="1" id="IRAM1" start="0x20000000" init="0"/>
+                    <algorithm name="Flash/FM33FK52X_FLASH128.FLM" start="0x00000000" size="0x20000" default="1"/>
+                </device>
+                <!-- FM33FK54X-->
+                <device Dname="FM33FK54X">
+                    <memory size="0x40000" default="1" startup="1" id="IROM1" start="0x00000000"/>
+                    <memory size="0xC000"  default="1" id="IRAM1" start="0x20000000" init="0"/>
+                    <algorithm name="Flash/FM33FK54X_FLASH256.FLM" start="0x00000000" size="0x40000" default="1"/>
+                </device>
+            </subFamily>
+        </family>
+    </devices>
+    <!-- conditions section (optional for all Software Packs)-->
+    <conditions>
+        <condition id="FM33FK5XX CMSIS-CORE">
+            <!-- conditions selecting Devices -->
+            <description>FMSH FM33FK5XX Series devices and CMSIS-CORE</description>
+            <require Cclass="CMSIS" Cgroup="CORE"/>
+            <require Dvendor="FMSH:159" Dmpu="1" Dname="FM33FK5**"/>
+        </condition>
+        <condition id="Startup ARM">
+            <description>Startup assembler file for ARMCC</description>
+            <require Tcompiler="ARMCC"/>
+        </condition>
+    </conditions>
+    <!-- component section (optional for all Software Packs)-->
+    <components>
+        <component condition="FM33FK5XX CMSIS-CORE" Cclass="Device" Cversion="1.0.0" Cgroup="Startup">
+            <description>System Startup for FMSH FM33FK5XX Series</description>
+            <files>
+                <!--  include folder -->
+                <file category="include" name="Device/Include/"/>
+                <file attr="config" version="1.0.0" condition="Startup ARM" category="source" name="Device/Source/ARM/startup_fm33fk5xx.s"/>
+                <file attr="config" version="1.0.0" category="source" name="Device/Source/system_fm33fk5xx.c"/>
+            </files>
+        </component>
+    </components>
+</package>
