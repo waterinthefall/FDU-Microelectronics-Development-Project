@@ -6,16 +6,20 @@
     "configurations": [
         {
             "cwd": "${workspaceFolder}",
-            "executable": "./build/Debug/${workspaceFolderBasename}.elf",
+            "executable": "./build/Debug/demo.elf",
             "name": "Debug with JLink",
             "request": "launch",
             "type": "cortex-debug",
             "device": "FM33FK54x",
             "interface": "swd",
-            "runToEntryPoint": "main",
             "showDevDebugOutput": "none",
             "servertype": "jlink",
             "preLaunchTask": "build",
+            "svdFile": ".pack/FMSH/FM33FK5XX_DFP.1.0.2/SVD/FM33FK5XX.SVD",
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 1
+            }
         }
     ]
 }
